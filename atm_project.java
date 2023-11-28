@@ -7,7 +7,6 @@ public class atm_project {
             System.out.println("Enter number 1 for Account inquiry");
             System.out.println("Enter number 2 to withdraw ");
             System.out.println("Enter number 3 to deposit");
-        while (true) {
             System.out.println("Enter your process number");
             int PN = console.nextInt(); // رقم العملية
 
@@ -27,7 +26,7 @@ public class atm_project {
                     System.out.println("If you want to withdraw 2000 $ press :   2");
                     System.out.println("If you want to withdraw 3000 $ press:   3");
                     System.out.println("Else press :   4");
-                    int AoW = console.nextInt();
+
                     int AB = 2250750;
 
                     System.out.println("please enter your process number:");
@@ -68,28 +67,26 @@ public class atm_project {
                             break;
 
                         case 4:
-                            System.out.print("Enter the amount to withdraw: ");
+                        while (true) {
+                            System.out.println("Enter the amount to withdraw: ");
+                            int AoW = console.nextInt();
+                        
                             if (AoW <= AB) {
                                 if (AoW <= 10000) {
                                     System.out.println("Withdrawal successful. Please take your cash.");
                                     AB -= AoW;
-                                    System.out.println("your new balance is: " + AB);
+                                    System.out.println("Your new balance is: " + AB);
+                                    break; // Exit the loop if withdrawal is successful
                                 } else {
-                                    System.out.println("Your withdraw limit is 10,000.");
+                                    System.out.println("Your withdrawal limit is 10,000.");
                                 }
                             } else {
-                                System.out.println("No enough balance .");
-                                System.out.println("your  bank balance is :" + AB);
+                                System.out.println("Not enough balance.");
+                                System.out.println("Your bank balance is: " + AB);
                             }
+                            }
+                        }
                             break;
-
-                        default :
-                                System.out.println("Invalid process number. Please try again.");
-                            break;
-                    }
-
-                 break;
-
                 case 3:
                     // عملية الإيداع
                     System.out.print("Enter the amount to deposit: ");
@@ -98,7 +95,10 @@ public class atm_project {
                     AB += AoD;
                     System.out.println("Deposit successful. Your new balance is: " + AB);
                     break;
+
+                    default : 
+                    System.out.println("Please, enter valid number");
+                    break;
             }
         }
     }
-}
