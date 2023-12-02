@@ -87,6 +87,11 @@ public class atm_project {
                             }
                         }
                             break;
+                    
+                    default : 
+                    System.out.println("Please, enter valid number");
+                    break;
+                    
                 case 3:
                     // عملية الإيداع
                     System.out.print("Enter the amount to deposit: ");
